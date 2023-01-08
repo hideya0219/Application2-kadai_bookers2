@@ -13,9 +13,9 @@
       </tr>
     </table>
     <div class="d-grid gap-2">
-      <button type="button" class="btn btn-outline-dark">
+      <%= link_to edit_user_path(current_user.id), class: "btn btn-outline-dark" do %>
         <i class="fa-sharp fa-solid fa-user-gear"></i>
-      </button>
+      <% end %>
     </div>
   </div>
   <div class="new-book">
