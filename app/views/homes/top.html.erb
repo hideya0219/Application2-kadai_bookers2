@@ -7,8 +7,8 @@
       about various books!
       </p>
       <div class="col-11 mx-auto d-grid gap-3">
-        <button class="btn btn-primary" type="button">Log in</button>
-        <button class="btn btn-success" type="button">Sign up</button>
+        <%= link_to "Log in", new_user_session_path, class: 'btn btn-primary' %>
+        <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-success' %>
       </div>
     </div>
   </div>
