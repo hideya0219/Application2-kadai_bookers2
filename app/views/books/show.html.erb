@@ -8,7 +8,9 @@
           <th style="width: 100px; height: 100px;"><%= image_tag 'sample-author1.jpg', size:"100x100" %></th>
           <th><%= @book.title %></th>
           <th><%= @book.body %></th>
-          <th><%= link_to "edit", edit_book_path(@book.id), class: 'btn btn-success' %></th>
+          <% if @book.user == current_user %>
+            <th><%= link_to "edit", edit_book_path(@book.id), class: 'btn btn-success' %></th>
+          <% end %>
           <% if @book.user == current_user %>
             <th><%= link_to "destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger' %></th>
           <% end %>
