@@ -1,14 +1,24 @@
 <div class="container">
   <div class="row">
-    <div class="col-6">
+    <div class="col-6 mx-auto">
       <h1>User info</h1>
+      <div class="error-message">
+        <% if @user.errors.any? %>
+          <h2><%= @user.errors.count %>errors prohibited this obj from being saved:</h2>
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
       <%= form_with model: @user, method: :patch do |f| %>
         <p>Name</p>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, class: 'form-control' %>
         <p>Image</p>
         <%= f.file_field :profile_image %>
         <p>Introduction</p>
-        <%= f.text_area :introduction %></br>
+        <%= f.text_area :introduction, class: 'form-control' %></br>
         <%= f.submit "Update User", class: 'btn btn btn-secondary' %>
       <% end %>
     </div>
