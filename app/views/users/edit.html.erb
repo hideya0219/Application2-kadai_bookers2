@@ -13,11 +13,11 @@
         <% end %>
       </div>
       <%= form_with model: @user, method: :patch do |f| %>
-        <p>Name</p>
+        <p class="mb-1">Name</p>
         <%= f.text_field :name, class: 'form-control' %>
-        <p>Image</p>
+        <p class="mb-1 mt-3">Image</p>
         <%= f.file_field :profile_image %>
-        <p>Introduction</p>
+        <p class="mb-1 mt-3">Introduction</p>
         <%= f.text_area :introduction, class: 'form-control' %></br>
         <%= f.submit "Update User", class: 'btn btn btn-secondary' %>
       <% end %>
