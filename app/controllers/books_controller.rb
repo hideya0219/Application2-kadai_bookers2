@@ -1,7 +1,9 @@
 class BooksController < ApplicationController
+   before_action :is_matching_login_user, only: [:edit, :update]
   def index
     @book = Book.new
     @books = Book.all
+
   end
 
   def create
@@ -17,6 +19,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    @book_ = Book.new
     @book = Book.find(params[:id])
   end
 
