@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   def index
     @book = Book.new
     @books = Book.all
-
+    @user = current_user
   end
 
   def create
@@ -14,6 +14,7 @@ class BooksController < ApplicationController
       redirect_to book_path(@book.id)
     else
       @books = Book.all
+      @user = current_user
       render :index
     end
   end
@@ -21,6 +22,7 @@ class BooksController < ApplicationController
   def show
     @book_ = Book.new
     @book = Book.find(params[:id])
+    @user = @book.user
   end
 
   def edit
@@ -50,8 +52,12 @@ class BooksController < ApplicationController
   end
 
   def is_matching_login_user
-    user_id = params[:id].to_i
-    unless user_id == current_user.id
+    # user_id = params[:id].to_i
+    # unless user_id == current_user.id
+      # redirect_to books_path
+    # end
+    @book = Book.find(params[:id])
+    unless @book.user == current_user
       redirect_to books_path
     end
   end

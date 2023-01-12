@@ -1,18 +1,18 @@
+<div class="flash">
+  <%= flash[:notice] %>
+</div>
 <div class="col-4">
   <div class="user-info">
-    <div class="flash">
-      <%= flash[:notice] %>
-    </div>
     <h1>User info</h1>
-    <p><%= image_tag current_user.get_profile_image %></p>
+    <p><%= image_tag user.get_profile_image %></p>
     <table class="table">
       <tr>
         <th>name</th>
-        <th><%= current_user.name %></th>
+        <th><%= user.name %></th>
       </tr>
       <tr>
         <th>introduction</th>
-        <th><%= current_user.introduction %></th>
+        <th><%= user.introduction %></th>
       </tr>
     </table>
     <div class="d-grid gap-2">
