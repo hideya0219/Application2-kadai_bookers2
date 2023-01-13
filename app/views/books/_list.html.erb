@@ -1,7 +1,7 @@
 <div class="flash">
   <%= flash[:notice] %>
 </div>
-<div class="col-4">
+<div class="col-md-3">
   <div class="user-info">
     <h1>User info</h1>
     <p><%= image_tag user.get_profile_image %></p>
@@ -16,8 +16,8 @@
       </tr>
     </table>
     <div class="d-grid gap-2">
-      <%= link_to edit_user_path(current_user.id), class: "btn btn-outline-dark" do %>
-        <i class="fa-sharp fa-solid fa-user-gear"></i>
+      <%= link_to edit_user_path(user.id), class: "btn btn-outline-dark" do %>
+        <i class="fas fa-user-cog"></i>
       <% end %>
     </div>
   </div>
